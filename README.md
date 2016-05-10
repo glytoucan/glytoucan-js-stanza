@@ -1,1 +1,1 @@
-# ts-stanza
+# GlyTouCan stanza ts versiton
