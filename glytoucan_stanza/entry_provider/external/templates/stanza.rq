@@ -1,0 +1,18 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+
+SELECT DISTINCT ?from ?db_label ?external_id ?url
+WHERE{
+	VALUES ?accNum {"{{accessionNumber}}"}
+	?saccharide glytoucan:has_primary_id ?accNum .
+
+	GRAPH ?graph {
+		?saccharide glycan:has_resource_entry ?entry .
+		?entry a glycan:Resource_entry .
+		?entry glycan:in_glycan_database ?db .
+		?entry dcterms:identifier ?external_id .
+		?entry rdfs:seeAlso ?url .
+		?db rdfs:label ?db_label .
+	}
+	?graph rdfs:label ?from.
+}

@@ -1,0 +1,4 @@
+index.html
+displayed by MAMP
+localhost:8888
+root directory : glytoucan_stanza 

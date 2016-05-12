@@ -1,0 +1,19 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?from ?taxon_name ?taxon_id ?taxon_url
+WHERE{
+	VALUES ?accNum {"{{accessionNumber}}"}
+	?saccharide  glytoucan:has_primary_id ?accNum .
+	GRAPH ?graph {
+		?saccharide glycan:is_from_source ?source.
+		?source a glycan:Source .
+		OPTIONAL{
+		 ?source dcterms:identifier ?taxon_id .
+		 ?source rdfs:seeAlso ?taxon_url .
+		}
+		OPTIONAL{
+		 ?source rdfs:label ?taxon_name .
+		}
+	}
+	?graph rdfs:label ?from .
+}
