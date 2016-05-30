@@ -15,4 +15,4 @@ WHERE{
 		?db rdfs:label ?db_label .
 	}
 	?graph rdfs:label ?from.
-}
+} ORDER by ?from

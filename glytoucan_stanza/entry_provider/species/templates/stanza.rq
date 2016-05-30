@@ -16,4 +16,4 @@ WHERE{
 		}
 	}
 	?graph rdfs:label ?from .
-}
+} ORDER by ?from
