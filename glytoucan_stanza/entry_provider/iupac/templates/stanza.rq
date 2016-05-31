@@ -7,7 +7,7 @@ WHERE {
   VALUES ?accNum {"{{accessionNumber}}"}
   ?saccharide glytoucan:has_primary_id ?accNum .
 
-  # GlycoCT
+  # IUPAC 
   OPTIONAL{
   ?saccharide glycan:has_glycosequence ?iupSeq .
   ?iupSeq glycan:has_sequence ?seq .
