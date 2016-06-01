@@ -9,7 +9,9 @@ WHERE{
 	GRAPH ?graph {
 		?saccharide glycan:is_from_source ?source.
 		?source a glycan:Source .
-		?source rdfs:label ?taxon_name .
+		OPTIONAL{
+		 ?source rdfs:label ?taxon_name .
+		}
 		OPTIONAL{
 		 ?source dcterms:identifier ?taxon_id .
 		 ?source rdfs:seeAlso ?taxon_url .
