@@ -14,9 +14,13 @@ Download latest release binary from https://github.com/togostanza/ts/releases. E
 ```
 glytoucan-js-stanza/
 |---README.md
+|---htdocs
+|   |---assets/
+|   |---stanza/
+|   |---entry.html
+|   |---myStructure.html
+|
 |---glytoucan_stanza/
     |
     |---entry_provider/
-    |
-    |---top_status_provider/
 ```
