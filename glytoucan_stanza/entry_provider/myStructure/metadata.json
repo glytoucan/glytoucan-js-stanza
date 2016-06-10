@@ -1,0 +1,40 @@
+{
+  "@context": {
+    "stanza": "http://togostanza.org/resource/stanza#"
+  },
+  "@id": "myStructure",
+  "stanza:label": "myStructure",
+  "stanza:definition": "Structure list which is user registered",
+  "stanza:parameter": [
+    {
+      "stanza:key": "userId",
+      "stanza:example": "105",
+      "stanza:description" : "User ID",
+      "stanza:required": true
+    },
+    {
+      "stanza:key": "notation",
+      "stanza:example": "cfg",
+      "stanza:description" : "Structure notation",
+      "stanza:required": true
+    },
+    {
+      "stanza:key": "offset",
+      "stanza:example": "3",
+      "stanza:description" : "Paging",
+      "stanza:required": true
+    }
+  ],
+  "stanza:usage": "<togostanza-myStructure userId=\"105\" notation=\"cfg\" offset=\"3\"></togostanza-myStructure>",
+  "stanza:type": "Stanza",
+  "stanza:context": "",
+  "stanza:display": "",
+  "stanza:provider": "provider of this stanza",
+  "stanza:license": "",
+  "stanza:author": "Daisuke Shinmachi",
+  "stanza:address": "name@example.org",
+  "stanza:contributor": [
+  ],
+  "stanza:created": "2016-06-08",
+  "stanza:updated": "2016-06-08"
+}
