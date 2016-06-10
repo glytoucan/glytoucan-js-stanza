@@ -14,8 +14,10 @@ WHERE{
 			?source dcterms:identifier ?taxon_id .
 			?source rdfs:seeAlso ?taxon_url .
 		}
-		?taxon_url rdfs:label ?taxon_name .
 		?graph rdfs:label ?from .
+		OPTIONAL{
+		?taxon_url rdfs:label ?taxon_name .
+		}
 	}
 	UNION
 	{
