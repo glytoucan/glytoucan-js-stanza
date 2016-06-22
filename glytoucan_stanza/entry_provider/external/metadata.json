@@ -8,12 +8,12 @@
   "stanza:parameter": [
     {
       "stanza:key": "acc",
-      "stanza:example": "G61846BY",
+      "stanza:example": "G48059CD",
       "stanza:description" : "Glycan accession number",
       "stanza:required": true
     }
   ],
-  "stanza:usage": "<togostanza-external acc=\"G61846BY\"></togostanza-external>",
+  "stanza:usage": "<togostanza-external acc=\"G48059CD\"></togostanza-external>",
   "stanza:type": "Stanza",
   "stanza:context": "",
   "stanza:display": "",
