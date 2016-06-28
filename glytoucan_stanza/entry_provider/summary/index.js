@@ -8,12 +8,14 @@ Stanza(function (stanza, params) {
 
   var hostname = window.location.hostname ;
   console.log(hostname);
-  // var sEndpoint = "https://ts.glytoucan.org/sparql";
-  // console.log(sEndpoint);
+  if (hostname == 'ts.glytouan.org') {
+    var sEndpoint = "https://ts.glytoucan.org/sparql";
+  } else {
+    var sEndpoint = "http://test.ts.glytoucan.org/sparql";
+  }
+  console.log(sEndpoint);
   var q = stanza.query({
-    // endpoint: sEndpoint,
-    // endpoint: "https://ts.glytoucan.org/sparql",
-    endpoint: "http://test.ts.glytoucan.org/sparql",
+    endpoint: sEndpoint,
     template: "stanza.rq",
     parameters: {
       accessionNumber: params.acc
