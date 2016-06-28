@@ -5,8 +5,18 @@ Handlebars.registerHelper('glycoctNothingFound', function (data) {
 });
 
 Stanza(function (stanza, params) {
+  // switch endpoint
+  var hostname = window.location.hostname ;
+  console.log('host: %s', hostname);
+  if (hostname == 'glytouan.org' || hostname == 'pre.glytouan.org') {
+    var sEndpoint = "https://ts.glytoucan.org/sparql";
+  } else {
+    var sEndpoint = "http://test.ts.glytoucan.org/sparql";
+  }
+  console.log('endpoint: %s', sEndpoint);
+
   var q = stanza.query({
-    endpoint: "http://test.ts.glytoucan.org/sparql",
+    endpoint: sEndpoint,
     template: "stanza.rq",
     parameters: {
       accessionNumber: params.acc

@@ -5,15 +5,16 @@ Handlebars.registerHelper('summaryNothingFound', function (data) {
 });
 
 Stanza(function (stanza, params) {
-
+  // switch endpoint
   var hostname = window.location.hostname ;
-  console.log(hostname);
-  if (hostname == 'ts.glytouan.org') {
+  console.log('host: %s', hostname);
+  if (hostname == 'glytouan.org' || hostname == 'pre.glytouan.org') {
     var sEndpoint = "https://ts.glytoucan.org/sparql";
   } else {
     var sEndpoint = "http://test.ts.glytoucan.org/sparql";
   }
-  console.log(sEndpoint);
+  console.log('endpoint: %s', sEndpoint);
+
   var q = stanza.query({
     endpoint: sEndpoint,
     template: "stanza.rq",
@@ -21,6 +22,9 @@ Stanza(function (stanza, params) {
       accessionNumber: params.acc
     }
   });
+  console.log('accessionNumber: %s', params.acc);
+  console.log('notation: %s', params.notation);
+
   q.done(function (data) {
     var list = data.results.bindings.map(function (d) {
       d.Mass_label.value = Math.round(10000 * parseFloat(d.Mass_label.value, 10)) / 10000;
