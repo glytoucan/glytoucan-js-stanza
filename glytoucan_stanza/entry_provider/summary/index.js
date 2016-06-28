@@ -5,7 +5,14 @@ Handlebars.registerHelper('summaryNothingFound', function (data) {
 });
 
 Stanza(function (stanza, params) {
+
+  var hostname = window.location.hostname ;
+  console.log(hostname);
+  // var sEndpoint = "https://ts.glytoucan.org/sparql";
+  // console.log(sEndpoint);
   var q = stanza.query({
+    // endpoint: sEndpoint,
+    // endpoint: "https://ts.glytoucan.org/sparql",
     endpoint: "http://test.ts.glytoucan.org/sparql",
     template: "stanza.rq",
     parameters: {
