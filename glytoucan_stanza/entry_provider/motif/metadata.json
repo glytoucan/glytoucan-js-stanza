@@ -19,7 +19,7 @@
       "stanza:required": true
     }
   ],
-  "stanza:usage": "<togostanza-motif acc=\"G00051MO\" notaion=\"cfg\"></togostanza-motif>",
+  "stanza:usage": "<togostanza-motif acc=\"G00051MO\" notation=\"cfg\"></togostanza-motif>",
   "stanza:type": "Stanza",
   "stanza:context": "",
   "stanza:display": "",
