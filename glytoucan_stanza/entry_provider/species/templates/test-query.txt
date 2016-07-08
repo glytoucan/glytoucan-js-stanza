@@ -15,9 +15,7 @@ WHERE{
 			?source rdfs:seeAlso ?taxon_url .
 		}
 		?graph rdfs:label ?from .
-		OPTIONAL{
 		?taxon_url rdfs:label ?taxon_name .
-		}
 	}
 	UNION
 	{

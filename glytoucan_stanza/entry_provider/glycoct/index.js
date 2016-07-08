@@ -1,7 +1,8 @@
 'use strict';
 
 Handlebars.registerHelper('glycoctNothingFound', function (data) {
-  return data.length === 0 ? '<p class="stanzaNothingFound">Can\'t get GlycoCT data.</p>' : '';
+  console.log('data length: %s', data.length);
+  return data.length === 0 ? '<p class="stanzaNothingFound">Nothing found in this entry.</p>' : '';
 });
 
 Stanza(function (stanza, params) {

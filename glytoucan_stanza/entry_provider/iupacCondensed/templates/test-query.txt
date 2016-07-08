@@ -8,10 +8,8 @@ WHERE {
   ?saccharide glytoucan:has_primary_id ?accNum .
 
   # IUPAC_Condensed 
-  OPTIONAL{
   ?saccharide glycan:has_glycosequence ?iupSeq .
   ?iupSeq glycan:has_sequence ?seq .
   BIND(STR(?seq) AS ?IUPAC_Condensed)
   ?iupSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_iupac_condensed .
-  }
 }

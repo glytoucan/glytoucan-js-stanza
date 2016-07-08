@@ -1,7 +1,7 @@
 'use strict';
 
 Handlebars.registerHelper('iupacExtendedNothingFound', function (data) {
-  return data.length === 0 ? '<p class="stanzaNothingFound">Can\'t get IUPAC Extended data.</p>' : '';
+  return data.length === 0 ? '<p class="stanzaNothingFound">Nothing found in this entry.</p>' : '';
 });
 
 Stanza(function (stanza, params) {

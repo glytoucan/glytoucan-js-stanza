@@ -8,11 +8,9 @@ WHERE{
 
 	GRAPH ?graph {
 		?saccharide dcterms:references ?article .
-		OPTIONAL{
-		 ?article a bibo:Article .
-		 ?article dcterms:identifier ?pubmed_id .
-		 ?article rdfs:seeAlso ?pubmed_url .
-		}
+		?article a bibo:Article .
+		?article dcterms:identifier ?pubmed_id .
+		?article rdfs:seeAlso ?pubmed_url .
 	}
 	?graph rdfs:label ?from .
 } ORDER by ?from

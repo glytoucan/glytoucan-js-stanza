@@ -8,10 +8,8 @@ WHERE {
   ?saccharide glytoucan:has_primary_id ?accNum .
 
   # GlycoCT
-  OPTIONAL{
   ?saccharide glycan:has_glycosequence ?gctSeq .
   ?gctSeq glycan:has_sequence ?seq .
   BIND(STR(?seq) AS ?GlycoCT)
   ?gctSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoct .
-  }
 }

@@ -8,10 +8,8 @@ WHERE {
   ?saccharide glytoucan:has_primary_id ?accNum .
 
   # WURCS
-  OPTIONAL{
   ?saccharide glycan:has_glycosequence ?wcsSeq .
   ?wcsSeq rdfs:label ?wcsLabel .
   BIND(STR(?wcsLabel) AS ?WURCS_label)
   ?wcsSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_wurcs .
-  }
 }

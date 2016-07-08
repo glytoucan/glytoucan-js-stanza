@@ -1,6 +1,7 @@
 'use strict';
 
 Handlebars.registerHelper('summaryNothingFound', function (data) {
+  console.log('data length: %s', data.length);
   return data.length === 0 ? '<p class="stanzaNothingFound">No data found.</p>' : '';
 });
 

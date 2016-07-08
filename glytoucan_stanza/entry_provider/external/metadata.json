@@ -8,6 +8,7 @@
   "stanza:parameter": [
     {
       "stanza:key": "acc",
+      "stanza:example": "G69508OK",
       "stanza:example": "G48059CD",
       "stanza:description" : "Glycan accession number",
       "stanza:required": true
