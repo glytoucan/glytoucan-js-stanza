@@ -1,7 +1,7 @@
 'use strict';
 
 Handlebars.registerHelper('externalNothingFound', function (data) {
-  return data.length === undefined ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
+  return data.length === 0 ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
 });
 
 Stanza(function (stanza, params) {

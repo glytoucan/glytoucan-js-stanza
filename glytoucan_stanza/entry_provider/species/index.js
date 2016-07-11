@@ -1,8 +1,8 @@
 'use strict';
 
-Handlebars.registerHelper('nothingFound', function (data) {
+Handlebars.registerHelper('speciesNothingFound', function (data) {
   console.log('data length: %s', data.length);
-  return data.length === undefined ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
+  return data.length === 0 ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
 });
 
 Stanza(function (stanza, params) {
