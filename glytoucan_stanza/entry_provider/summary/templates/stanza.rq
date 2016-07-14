@@ -1,7 +1,7 @@
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-SELECT DISTINCT ?AccNum ?Mass_label ?WURCS_label ?CreateDate
+SELECT DISTINCT ?AccNum ?Mass_label ?IUPAC_Extended ?CreateDate
 WHERE {
   # Accession Number
   VALUES ?AccNum {"{{accessionNumber}}"}
@@ -15,12 +15,12 @@ WHERE {
   }
 
   # Sequence
-  # WURCS
+  # IUPAC Extended 
   OPTIONAL{
-    ?saccharide glycan:has_glycosequence ?wcsSeq .
-    ?wcsSeq rdfs:label ?wcsLabel .
-    BIND(STR(?wcsLabel) AS ?WURCS_label)
-    ?wcsSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_wurcs .
+    ?saccharide glycan:has_glycosequence ?iupSeq .
+    ?iupSeq glycan:has_sequence ?seq .
+    BIND(STR(?seq) AS ?IUPAC_Extended)
+    ?iupSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_iupac_extended .
   }
 
   # Contributor
