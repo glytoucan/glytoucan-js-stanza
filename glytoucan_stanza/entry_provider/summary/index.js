@@ -41,19 +41,31 @@ Stanza(function (stanza, params) {
         data: list
       },
     });
+    
+    /*
+    1) click "Cite this record"
+    2) select the citation text
+    3) click "Copy", this text is copied
+     */
     stanza.select('.citation_btn').addEventListener('click', function (e) {
       e.preventDefault();
       stanza.select('.citation_content').classList.toggle('citation_content--show');
+      var $target = $(stanza.select('.citation_text'));
+      var range = document.createRange();
+      range.selectNode($target[0]);
+      window.getSelection().addRange(range);
       return false;
     });
     stanza.select('.citation_copy').addEventListener('click', function (e) {
       e.preventDefault();
-      var $target = $(stanza.select('.citation_text'));
-      var range = document.createRange();
-      range.selectNode($target[0]);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
+      // var $target = $(stanza.select('.citation_text'));
+      // var range = document.createRange();
+      // range.selectNode($target[0]);
+      // window.getSelection().removeAllRanges();
+      // window.getSelection().addRange(range);
       document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+
       return false;
     });
   });
