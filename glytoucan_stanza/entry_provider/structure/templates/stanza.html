@@ -6,7 +6,7 @@ main {
 
 .structureImg {
 	position: relative;
-	padding: 10px 0 0;
+	padding: 5px 0 0;
 }
 
 img {
@@ -35,5 +35,6 @@ img:after {
 }
 </style>
 <div class="structureImg">
-	<img src="/glycans/{{acc}}/image?style=extended&amp;format=png&amp;notation={{notation}}" alt="Structure image for {{acc}}" />
+  <img src="/glycans/{{acc}}/image?style=extended&amp;format=png&amp;notation=iupac" alt="Structure image for {{acc}}" />
+  <!-- <img src="https://glytoucan.org/glycans/{{acc}}/image?style=extended&amp;format=png&amp;notation=iupac" alt="Structure image for {{acc}}" /> -->
 </div>

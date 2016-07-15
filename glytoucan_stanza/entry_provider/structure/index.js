@@ -5,7 +5,6 @@ Stanza(function (stanza, params) {
     template: "stanza.html",
     parameters: {
       acc: params.acc,
-      notation: params.notation
     },
   });
 });
