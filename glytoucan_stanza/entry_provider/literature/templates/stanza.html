@@ -82,13 +82,12 @@ main {
 	<li>
 		<ul class="literatureList_category">
 		{{#each this}}
-			<li>
-				<a href="{{{url}}}" target="_blank">{{id}}</a>
-			</li>
+			<li><a href="{{{url}}}" target="_blank">{{id}}</a></li>
 		{{/each}}
 		</ul>
 		<p class="literatureList_from">from {{@key}}</p>
 	</li>
+{{else}}
+	<li class="stanzaNothingFound">Nothing found in this entry.</li>
 {{/each}}
-{{#literatureNothingFound data}}{{/literatureNothingFound}}
 </ul>

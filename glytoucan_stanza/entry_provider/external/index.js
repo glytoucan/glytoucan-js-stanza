@@ -1,9 +1,9 @@
 'use strict';
 
-Handlebars.registerHelper('externalNothingFound', function (data) {
-  console.log('data length: %s', data.length);
-  return data.length === undefined ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
-});
+// Handlebars.registerHelper('externalNothingFound', function (data) {
+//   console.log('data length: %s', data.length);
+//   return data.length === undefined ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
+// });
 
 Stanza(function (stanza, params) {
   // switch endpoint

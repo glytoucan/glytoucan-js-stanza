@@ -89,13 +89,12 @@ main {
 		<p class="externalList_heading">{{this.label}}</p>
 		<ul class="externalList_category">
 		{{#each this.list}}
-			<li>
-				<a href="{{{url}}}" target="_blank">{{id}}</a>
-			</li>
+			<li><a href="{{{url}}}" target="_blank">{{id}}</a></li>
 		{{/each}}
 		</ul>
 		<p class="externalList_from">from {{this.from}}</p>
 	</li>
+{{else}}
+	<li class="stanzaNothingFound">Nothing found in this entry.</li>
 {{/each}}
-{{#externalNothingFound data}}{{/externalNothingFound}}
 </ul>
