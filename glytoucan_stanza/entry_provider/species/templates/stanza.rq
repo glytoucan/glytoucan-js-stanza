@@ -2,7 +2,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-SELECT DISTINCT ?from ?taxon_name ?taxon_id ?taxon_url 
+SELECT DISTINCT ?from ?partner_url ?description ?taxon_name ?taxon_id ?taxon_url
 WHERE{
 	VALUES ?accNum {"{{accessionNumber}}"}
 	?saccharide  glytoucan:has_primary_id ?accNum .
@@ -15,6 +15,8 @@ WHERE{
 			?source rdfs:seeAlso ?taxon_url .
 		}
 		?graph rdfs:label ?from .
+        ?graph rdfs:seeAlso ?partner_url.
+        ?graph dcterms:description ?description.
 		#?taxon_url rdfs:label ?taxon_name .
 	}
 	UNION
@@ -26,5 +28,7 @@ WHERE{
 			?source rdfs:label ?taxon_name .
 		}
 		?graph rdfs:label ?from .
+        ?graph rdfs:seeAlso ?partner_url.
+        ?graph dcterms:description ?description.
 	}
 } ORDER BY ?from
