@@ -26,6 +26,7 @@ WHERE {
   # Contributor
   OPTIONAL{
     ?saccharide glycan:has_resource_entry ?res .
+    ?res glycan:in_glycan_database glytoucan:database_glytoucan .
     ?res glytoucan:date_registered ?date .
     BIND(STR(?date) AS ?CreateDate)
   }
