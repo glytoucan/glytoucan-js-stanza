@@ -28,7 +28,10 @@ Stanza(function (stanza, params) {
 
   q.done(function (data) {
     var list = data.results.bindings.map(function (d) {
-      d.Mass_label.value = Math.round(10000 * parseFloat(d.Mass_label.value, 10)) / 10000;
+      console.log('d.Mass_label: %s', isFinite(d.Mass_label.value));
+      if (isFinite(d.Mass_label.value) ) {
+        d.Mass_label.value = Math.round(10000 * parseFloat(d.Mass_label.value, 10)) / 10000;
+      }
       d.CreateDate.value = new Date(d.CreateDate.value).toUTCString();
       return d;
     });

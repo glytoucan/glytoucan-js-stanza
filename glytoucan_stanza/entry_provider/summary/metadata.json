@@ -8,7 +8,7 @@
   "stanza:parameter": [
     {
       "stanza:key": "acc",
-      "stanza:example": "G92408RI",
+      "stanza:example": "G15870IW",
       "stanza:description" : "Glycan accession number",
       "stanza:required": true
     },
@@ -19,7 +19,7 @@
       "stanza:required": true
     }
   ],
-  "stanza:usage": "<togostanza-summary acc=\"G92408RI\" notation=\"cfg\"></togostanza-summary>",
+  "stanza:usage": "<togostanza-summary acc=\"G15870IW\" notation=\"cfg\"></togostanza-summary>",
   "stanza:type": "Stanza",
   "stanza:context": "",
   "stanza:display": "",
