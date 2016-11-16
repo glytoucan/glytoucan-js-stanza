@@ -9,12 +9,13 @@
     {
       "stanza:key": "acc",
       "stanza:example": "G69508OK",
+      "stanza:example": "G82109MW",
       "stanza:example": "G00051MO",
       "stanza:description" : "Glycan accession number",
       "stanza:required": true
     }
   ],
-  "stanza:usage": "<togostanza-literature acc=\"G00051MO\"></togostanza-literature>",
+  "stanza:usage": "<togostanza-literature acc=\"G82109MW\"></togostanza-literature>",
   "stanza:type": "Stanza",
   "stanza:context": "",
   "stanza:display": "",

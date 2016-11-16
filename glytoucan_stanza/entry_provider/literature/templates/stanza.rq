@@ -15,6 +15,6 @@ WHERE{
 		?article rdfs:seeAlso ?pubmed_url .
 	}
 	?graph rdfs:label ?from .
-    ?graph rdfs:seeAlso ?partner_url.
+    OPTIONAL {?graph rdfs:seeAlso ?partner_url.}
     ?graph dcterms:description ?description.
 } ORDER by ?from
