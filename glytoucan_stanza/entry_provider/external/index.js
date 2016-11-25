@@ -25,15 +25,19 @@ Stanza(function (stanza, params) {
   });
   q.done(function (data) {
     var categoryExternal = {};
-    var list, label, id, url;
+    var list, label, id, url, from, description, partnerurl;
     data.results.bindings.forEach(function (d) {
       categoryExternal[d.entry_label.value] = categoryExternal[d.entry_label.value] || {list: [], label: ''};
       label = d.entry_label ? d.entry_label.value : undefined;
       id = d.external_id ? d.external_id.value : undefined;
       url = d.url ? d.url.value : undefined;
       from = d.from ? d.from.value : undefined;
+      description = d.description ? d.description.value : undefined;
+      partnerurl = d.partner_url ? d.partner_url.value : undefined;
       categoryExternal[d.entry_label.value].label = categoryExternal[d.entry_label.value].label || label;
       categoryExternal[d.entry_label.value].from = categoryExternal[d.entry_label.value].from || from;
+      categoryExternal[d.entry_label.value].description = categoryExternal[d.entry_label.value].description || description;
+      categoryExternal[d.entry_label.value].partnerurl= categoryExternal[d.entry_label.value].partnerurl || partnerurl;
       categoryExternal[d.entry_label.value].list.push({id: id, url: url});
     });
     stanza.render({
@@ -42,6 +46,11 @@ Stanza(function (stanza, params) {
         data: categoryExternal
       },
     });
+    Array.prototype.forEach.call(stanza.selectAll('.source_btn'), function (el) {
+      el.addEventListener('click', function (e) {
+        e.currentTarget.nextElementSibling.classList.toggle('source_content--show');
+      });
+    }); 
   });
   q.fail(function (jqXHR) {
     console.log(jqXHR);
