@@ -25,12 +25,16 @@ Stanza(function (stanza, params) {
   });
   q.done(function (data) {
     var categoryTax = {};
-    var name, id, url;
+    var name, id, url, from, description, partnerurl;
     data.results.bindings.forEach(function (d) {
       categoryTax[d.from.value] = categoryTax[d.from.value] || [];
       name = d.taxon_name ? d.taxon_name.value : undefined;
       id = d.taxon_id ? d.taxon_id.value : undefined;
       url = d.taxon_url ? d.taxon_url.value : undefined;
+      description = d.description ? d.description.value : undefined;
+      partnerurl = d.partner_url ? d.partner_url.value : undefined;
+      categoryTax[d.from.value].description = categoryTax[d.from.value].description || description;
+      categoryTax[d.from.value].partnerurl= categoryTax[d.from.value].partnerurl || partnerurl;
       categoryTax[d.from.value].push({name: name, id: id, url: url});
     });
     stanza.render({
@@ -39,6 +43,11 @@ Stanza(function (stanza, params) {
         data: categoryTax
       },
     });
+    Array.prototype.forEach.call(stanza.selectAll('.source_btn'), function (el) {
+      el.addEventListener('click', function (e) {
+        e.currentTarget.nextElementSibling.classList.toggle('source_content--show');
+      });
+    }); 
   });
   q.fail(function (jqXHR) {
     console.log(jqXHR);
