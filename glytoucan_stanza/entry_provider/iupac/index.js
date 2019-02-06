@@ -11,7 +11,7 @@ Stanza(function (stanza, params) {
   if (hostname == 'glytouan.org' || hostname == 'pre.glytouan.org') {
     var sEndpoint = "https://ts.glytoucan.org/sparql";
   } else {
-    var sEndpoint = "http://test.ts.glytoucan.org/sparql";
+    var sEndpoint = "https://test.ts.glycosmos.org/sparql";
   }
   console.log('endpoint: %s', sEndpoint);
 

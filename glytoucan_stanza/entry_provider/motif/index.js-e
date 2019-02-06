@@ -1,7 +1,7 @@
 'use strict';
 
-Handlebars.registerHelper('wurcsNothingFound', function (data) {
-  return data.length === 0 ? '<p class="stanzaNothingFound">Nothing found in this entry.</p>' : '';
+Handlebars.registerHelper('motifNothingFound', function (data) {
+  return data.length === 0 ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
 });
 
 Stanza(function (stanza, params) {
@@ -11,7 +11,7 @@ Stanza(function (stanza, params) {
   if (hostname == 'glytoucan.org' || hostname == 'pre.glytoucan.org') {
     var sEndpoint = "https://ts.glytoucan.org/sparql";
   } else {
-    var sEndpoint = "https://test.ts.glycosmos.org/sparql";
+    var sEndpoint = "http://test.ts.glytoucan.org/sparql";
   }
   console.log('endpoint: %s', sEndpoint);
 
@@ -23,10 +23,14 @@ Stanza(function (stanza, params) {
     }
   });
   q.done(function (data) {
+    var list = data.results.bindings.map(function (d) {
+      d.notation = params.notation;
+      return d;
+    });
     stanza.render({
       template: "stanza.html",
       parameters: {
-        data: data.results.bindings
+        data: list
       },
     });
   });

@@ -1,6 +1,7 @@
 'use strict';
 
-Handlebars.registerHelper('wurcsNothingFound', function (data) {
+Handlebars.registerHelper('glycoctNothingFound', function (data) {
+  console.log('data length: %s', data.length);
   return data.length === 0 ? '<p class="stanzaNothingFound">Nothing found in this entry.</p>' : '';
 });
 
@@ -11,7 +12,7 @@ Stanza(function (stanza, params) {
   if (hostname == 'glytoucan.org' || hostname == 'pre.glytoucan.org') {
     var sEndpoint = "https://ts.glytoucan.org/sparql";
   } else {
-    var sEndpoint = "https://test.ts.glycosmos.org/sparql";
+    var sEndpoint = "http://test.ts.glytoucan.org/sparql";
   }
   console.log('endpoint: %s', sEndpoint);
 
