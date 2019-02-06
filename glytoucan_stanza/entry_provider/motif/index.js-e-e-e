@@ -1,14 +1,14 @@
 'use strict';
 
-Handlebars.registerHelper('iupacCondensedNothingFound', function (data) {
-  return data.length === 0 ? '<p class="stanzaNothingFound">Nothing found in this entry.</p>' : '';
+Handlebars.registerHelper('motifNothingFound', function (data) {
+  return data.length === 0 ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
 });
 
 Stanza(function (stanza, params) {
   // switch endpoint
   var hostname = window.location.hostname ;
   console.log('host: %s', hostname);
-  if (hostname == 'gtc.glycosmos.org' || hostname == 'pre.glytoucan.org') {
+  if (hostname == 'glytoucan.org' || hostname == 'pre.glytoucan.org') {
     var sEndpoint = "https://static.ts.glycosmos.org/sparql";
   } else {
     var sEndpoint = "https://test.ts.glycosmos.org/sparql";
@@ -23,10 +23,14 @@ Stanza(function (stanza, params) {
     }
   });
   q.done(function (data) {
+    var list = data.results.bindings.map(function (d) {
+      d.notation = params.notation;
+      return d;
+    });
     stanza.render({
       template: "stanza.html",
       parameters: {
-        data: data.results.bindings
+        data: list
       },
     });
   });
