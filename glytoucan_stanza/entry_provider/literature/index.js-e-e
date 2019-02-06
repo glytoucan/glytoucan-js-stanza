@@ -1,6 +1,6 @@
 'use strict';
 
-// Handlebars.registerHelper('externalNothingFound', function (data) {
+// Handlebars.registerHelper('literatureNothingFound', function (data) {
 //   console.log('data length: %s', data.length);
 //   return data.length === undefined ? '<li class="stanzaNothingFound">Nothing found in this entry.</li>' : '';
 // });
@@ -10,7 +10,7 @@ Stanza(function (stanza, params) {
   var hostname = window.location.hostname ;
   console.log('host: %s', hostname);
   if (hostname == 'glytoucan.org' || hostname == 'pre.glytoucan.org') {
-    var sEndpoint = "https://static.ts.glycosmos.org/sparql";
+    var sEndpoint = "https://ts.glytoucan.org/sparql";
   } else {
     var sEndpoint = "https://test.ts.glycosmos.org/sparql";
   }
@@ -24,26 +24,22 @@ Stanza(function (stanza, params) {
     }
   });
   q.done(function (data) {
-    var categoryExternal = {};
-    var list, label, id, url, from, description, partnerurl;
+    var categoryPubMed = {};
+    var id, url, from, description, partnerurl;
     data.results.bindings.forEach(function (d) {
-      categoryExternal[d.entry_label.value] = categoryExternal[d.entry_label.value] || {list: [], label: ''};
-      label = d.entry_label ? d.entry_label.value : undefined;
-      id = d.external_id ? d.external_id.value : undefined;
-      url = d.url ? d.url.value : undefined;
-      from = d.from ? d.from.value : undefined;
+      categoryPubMed[d.from.value] = categoryPubMed[d.from.value] || [];
+      id = d.pubmed_id ? d.pubmed_id.value : undefined;
+      url = d.pubmed_url ? d.pubmed_url.value : undefined;
       description = d.description ? d.description.value : undefined;
       partnerurl = d.partner_url ? d.partner_url.value : undefined;
-      categoryExternal[d.entry_label.value].label = categoryExternal[d.entry_label.value].label || label;
-      categoryExternal[d.entry_label.value].from = categoryExternal[d.entry_label.value].from || from;
-      categoryExternal[d.entry_label.value].description = categoryExternal[d.entry_label.value].description || description;
-      categoryExternal[d.entry_label.value].partnerurl= categoryExternal[d.entry_label.value].partnerurl || partnerurl;
-      categoryExternal[d.entry_label.value].list.push({id: id, url: url});
+      categoryPubMed[d.from.value].description = categoryPubMed[d.from.value].description || description;
+      categoryPubMed[d.from.value].partnerurl= categoryPubMed[d.from.value].partnerurl || partnerurl;
+      categoryPubMed[d.from.value].push({id: id, url: url});
     });
     stanza.render({
       template: "stanza.html",
       parameters: {
-        data: categoryExternal
+        data: categoryPubMed
       },
     });
     Array.prototype.forEach.call(stanza.selectAll('.source_btn'), function (el) {

@@ -1,15 +1,15 @@
 'use strict';
 
-Handlebars.registerHelper('iupacNothingFound', function (data) {
-  return data.length === 0 ? '<p class="stanzaNothingFound">Can\'t get IUPAC data.</p>' : '';
+Handlebars.registerHelper('iupacExtendedNothingFound', function (data) {
+  return data.length === 0 ? '<p class="stanzaNothingFound">Nothing found in this entry.</p>' : '';
 });
 
 Stanza(function (stanza, params) {
   // switch endpoint
   var hostname = window.location.hostname ;
   console.log('host: %s', hostname);
-  if (hostname == 'glytouan.org' || hostname == 'pre.glytouan.org') {
-    var sEndpoint = "https://static.ts.glycosmos.org/sparql";
+  if (hostname == 'glytoucan.org' || hostname == 'pre.glytoucan.org') {
+    var sEndpoint = "https://ts.glytoucan.org/sparql";
   } else {
     var sEndpoint = "https://test.ts.glycosmos.org/sparql";
   }

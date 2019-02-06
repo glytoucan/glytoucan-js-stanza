@@ -10,7 +10,7 @@ Stanza(function (stanza, params) {
   var hostname = window.location.hostname ;
   console.log('host: %s', hostname);
   if (hostname == 'glytoucan.org' || hostname == 'pre.glytoucan.org') {
-    var sEndpoint = "https://static.ts.glycosmos.org/sparql";
+    var sEndpoint = "https://ts.glytoucan.org/sparql";
   } else {
     var sEndpoint = "https://test.ts.glycosmos.org/sparql";
   }
